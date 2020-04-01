@@ -19,11 +19,13 @@ class Song
     artist.name if artist
   end
 
-  def self.new_by_filename(file)
-    name = file.gsub(".mp3","").split(" - ")
-    s = Song.new(name[1])
-    s.artist_name = name[0]
-    s
+  def self.new_by_filename(filename)
+    song = filename.split(" - ")
+    title = song[1]
+    artist_name = song[0]
+    song = Song.new(title)
+    song.artist_name=(artist_name)
+    song
   end
 
   def artist_name=(name)
